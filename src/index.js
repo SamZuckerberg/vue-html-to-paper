@@ -36,15 +36,18 @@ const VueHtmlToPaper = {
       const element = window.document.getElementById(el);
 
       window.document.title = 'SAMIR';
+      window.document.name = 'NAMEE';
 
       if (!element) {
         alert(`Element to print #${el} not found!`);
         return;
       }
-      
+      document.title = 'SAMIR';
+      document.name = 'NAMEE';
       const url = '';
       let win = window.open(url, 'name', specs, replace);
       win.title = 'SAM';
+      win.name = "NAMEEEE";
 
       win.document.write(`
         <html>
