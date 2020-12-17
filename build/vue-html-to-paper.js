@@ -49,7 +49,8 @@
         }
         
         const url = '';
-        const win = window.open(url, 'name', specs, replace);
+        let win = window.open(url, 'name', specs, replace);
+        win.title = 'SAM';
 
         win.document.write(`
         <html>
