@@ -65,7 +65,7 @@
         setTimeout(() => {
           win.document.close();
           win.focus();
-          win.print();
+          // win.print();
           win.close();
           cb();
         }, 1000);
