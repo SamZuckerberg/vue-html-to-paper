@@ -42,6 +42,7 @@ const VueHtmlToPaper = {
       
       const url = '';
       const win = window.open(url, name, specs, replace);
+      console.log(window.document);
 
       win.document.write(`
         <html>
