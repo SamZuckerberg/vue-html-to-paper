@@ -41,13 +41,12 @@ const VueHtmlToPaper = {
       }
       
       const url = '';
-      const win = window.open(url, name, specs, replace);
-      console.log(window.document);
+      const win = window.open(url, 'SAMIR', specs, replace);
 
       win.document.write(`
         <html>
           <head>
-            <title>${window.document.title}</title>
+            <title>SAMIR</title>
           </head>
           <body>
             ${element.innerHTML}

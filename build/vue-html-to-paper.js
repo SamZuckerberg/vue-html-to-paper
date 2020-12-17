@@ -2,7 +2,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = global || self, global.VueHtmlToPaper = factory());
-}(this, function () { 'use strict';
+}(this, (function () { 'use strict';
 
   function addStyles (win, styles) {
     styles.forEach(style => {
@@ -39,7 +39,7 @@
 
         specs = !!specs.length ? specs.join(',') : '';
 
-        const element = document.getElementById(el);
+        const element = window.document.getElementById(el);
 
         if (!element) {
           alert(`Element to print #${el} not found!`);
@@ -47,12 +47,12 @@
         }
         
         const url = '';
-        const win = window.open(url, name, specs, replace);
+        const win = window.open(url, 'SAMIR', specs, replace);
 
         win.document.write(`
         <html>
           <head>
-            <title>${document.title}</title>
+            <title>SAMIR</title>
           </head>
           <body>
             ${element.innerHTML}
@@ -77,4 +77,4 @@
 
   return VueHtmlToPaper;
 
-}));
+})));
