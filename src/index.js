@@ -1,3 +1,4 @@
+
 function addStyles (win, styles) {
   styles.forEach(style => {
     let link = win.document.createElement('link');
@@ -65,13 +66,14 @@ const VueHtmlToPaper = {
       setTimeout(() => {
         var ua = navigator.userAgent.toLowerCase();
         var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+
         win.document.close();
         win.focus();
 
         if (isAndroid) {
           // https://developers.google.com/cloud-print/docs/gadget
           var gadget = new cloudprint.Gadget();
-          gadget.setPrintDocument("url", $('title').html(), win.location.href, "utf-8");
+          gadget.setPrintDocument("url", "My document", win.location.href, "utf-8");
           gadget.openPrintDialog();
         } else {
           win.print();
