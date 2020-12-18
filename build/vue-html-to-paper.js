@@ -58,7 +58,7 @@
         win.document.write(`
         <html>
           <head>
-            <title>${window.document.title}</title>
+            <title>SAMIR</title>
           </head>
           <body>
             ${element.innerHTML}
@@ -69,10 +69,19 @@
         addStyles(win, styles);
         
         setTimeout(() => {
-          console.log(win);
+          var ua = navigator.userAgent.toLowerCase();
+          var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
           win.document.close();
           win.focus();
-          win.print();
+
+          if (isAndroid) {
+            // https://developers.google.com/cloud-print/docs/gadget
+            var gadget = new cloudprint.Gadget();
+            gadget.setPrintDocument("url", $('title').html(), win.location.href, "utf-8");
+            gadget.openPrintDialog();
+          } else {
+            win.print();
+          }
           win.close();
           cb();
         }, 1000);
